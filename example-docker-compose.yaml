@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  ups:
+    image: ghcr.io/jcostom/nutcgi:0.2
+    container_name: ups
+    volumes:
+      - /some/path/to/volumes/ups:/etc/nut:ro
+    restart: unless-stopped
+    networks:
+      - infra
+    
+networks:
+  infra:
+    external: true
