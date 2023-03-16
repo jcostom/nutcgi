@@ -4,7 +4,7 @@ ARG TARGETARCH
 
 COPY ./lighttpd.conf /tmp
 
-RUN apt-get update && apt-get install -y lighttpd xz-utils nut-cgi
+RUN apt-get update && apt-get install -y lighttpd xz-utils nut-cgi curl
 CMD ["/usr/sbin/lighttpd", "-D", "-f", "/tmp/lighttpd.conf"]
 
 RUN case ${TARGETARCH} in \
