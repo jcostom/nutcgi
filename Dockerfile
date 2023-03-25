@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:jammy-20230308
 ARG S6_OVERLAY_VERSION=3.1.4.1
 ARG TARGETARCH
 
