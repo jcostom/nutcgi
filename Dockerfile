@@ -1,10 +1,10 @@
 FROM ubuntu:noble-20240530
-ARG S6_OVERLAY_VERSION=3.1.6.2
+ARG S6_OVERLAY_VERSION=3.2.0.0
 ARG TARGETARCH
 
 COPY ./lighttpd.conf /tmp
 
-RUN apt-get update && apt-get install -y lighttpd xz-utils nut-cgi curl
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -yq lighttpd xz-utils nut-cgi curl
 CMD ["/usr/sbin/lighttpd", "-D", "-f", "/tmp/lighttpd.conf"]
 
 RUN case ${TARGETARCH} in \
